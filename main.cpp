@@ -53,6 +53,13 @@ int main() {
         // Add customer to shortest line
         Vendor[ShortLine].Insert(NumItems);
         Vendor->Print();
+
+        int probabilityToLeave = random() % 100;
+
+        if (probabilityToLeave <= 19 && probabilityToLeave >= 0) {
+            Vendor[ShortLine].Remove();
+        }
+
     }
 
     // Print all customer lines
