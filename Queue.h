@@ -10,7 +10,7 @@
 #include <iomanip>
 using namespace std;
 
-const int QUEUE_SIZE = 10;
+const int QUEUE_SIZE = 100;
 
 class Queue {
 public:
