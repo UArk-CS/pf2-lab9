@@ -62,6 +62,22 @@ int main() {
 
     }
 
+    for (int line = 0; line < NumLines; line++) {
+
+        while (!Vendor[line].IsEmpty()) {
+
+            int probability = random() % 100;
+
+            if (probability <= 19 && probability >= 0) {
+
+                Vendor[line].Remove();
+
+            }
+
+        }
+
+    }
+
     // Print all customer lines
     for (int Line = 0; Line < NumLines; Line++)
     {
