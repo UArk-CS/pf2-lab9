@@ -3,24 +3,66 @@
 
 int main() {
 
-    int num;
-    Queue q;
+//    Old code
+//    int num;
+//    Queue q;
 
-    for (int i = 0; i < 100; i++) {
+//    for (int i = 0; i < 100; i++) {
 
-        int value = rand() % 10;
-        q.Insert(3);
-        q.Print();
+//        int value = rand() % 10;
+//        q.Insert(3);
+//        q.Print();
 //        q.Remove(num);
 
+//    }
+
+//    for (int i = 0; i < 100; i++) {
+
+//        q.Remove(num);
+//        q.Print();
+
+//    }
+
+//    return 0;
+
+    int NumLines = 6;
+    int NumCustomers = 36;
+    int CurrentTime = 0;
+    Queue *Vendor = new Queue[NumLines];
+
+    // Add customers to different queues
+    for (int Customer = 0; Customer < NumCustomers; Customer++)
+    {
+        // Generate customer data
+        CurrentTime += 5 + random() % 20;
+        int NumItems = 1 + random() % 5;
+
+        // Search for shortest queue
+        int ShortLine = 0;
+        int ShortLength = Vendor[0].GetLength();
+        for (int Line = 1; Line < NumLines; Line++)
+        {
+            int Length = Vendor[Line].GetLength();
+            if (Length < ShortLength)
+            {
+                ShortLine = Line;
+                ShortLength = Length;
+            }
+        }
+
+        // Add customer to shortest line
+        Vendor[ShortLine].Insert(NumItems);
+        Vendor->Print();
     }
 
-    for (int i = 0; i < 100; i++) {
-
-        q.Remove(num);
-        q.Print();
-
+    // Print all customer lines
+    for (int Line = 0; Line < NumLines; Line++)
+    {
+        cout << "Line " << Line << " ";
+        Vendor[Line].Print();
     }
+
+    cout << endl;
 
     return 0;
 
